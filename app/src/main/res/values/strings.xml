@@ -9,5 +9,7 @@
     <string name="player">Player - Coder Prey</string>
     <string name="enemy">Enemy - Zombie Catcher</string>
     <string name="exit">Exit</string>
+    <string name="blood">Blood on the floor</string>
+    <string name="bunny">A cute a bunny</string>
 
 </resources>

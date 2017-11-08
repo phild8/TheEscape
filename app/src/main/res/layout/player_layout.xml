@@ -3,6 +3,5 @@
            android:layout_width="50dp"
            android:layout_height="50dp"
            android:contentDescription="@string/player"
-           android:src="@drawable/male_player">
-
+           android:src="@drawable/female_player">
 </ImageView>

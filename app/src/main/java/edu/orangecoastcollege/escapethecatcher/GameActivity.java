@@ -44,6 +44,8 @@ public class GameActivity extends AppCompatActivity implements GestureDetector.O
     private RelativeLayout activityGameRelativeLayout;
     private ImageView zombieImageView;
     private ImageView playerImageView;
+    private ImageView bloodImageView;
+    private ImageView bunnyImageview;
     private TextView winsTextView;
     private TextView lossesTextView;
 
@@ -155,12 +157,13 @@ public class GameActivity extends AppCompatActivity implements GestureDetector.O
         playerImageView.setY(row * SQUARE + OFFSET);
         // Add to relative layout and the list
         activityGameRelativeLayout.addView(playerImageView);
-        allGameObjects.add(zombieImageView);
+        allGameObjects.add(playerImageView);
         // Instantiate the zombie
         player = new Player();
         player.setRow(row);
         player.setCol(col);
     }
+
 
 
     private void movePlayer(float velocityX, float velocityY) {
@@ -198,11 +201,13 @@ public class GameActivity extends AppCompatActivity implements GestureDetector.O
         // 2) OR if the Player and Zombie are touching  (LOSE)
         if (player.getCol() == exitRow  && player.getRow() == exitCol) {
             ++wins;
-            onRestart();
+            playerImageView = null;
+            //playerImageView = (ImageView) layoutInflater.inflate(R.layout.blood_layout);
+            startNewGame();
         }
         else if (player.getCol() == zombie.getCol() && player.getRow() == zombie.getRow()) {
             ++losses;
-            onRestart();
+            startNewGame();
         }
 
         // TODO: Determine which absolute velocity is greater (x or y)
